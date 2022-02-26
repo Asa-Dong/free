@@ -8,42 +8,6 @@ then
   exit 1
 fi
 
-
-cat <<EOF
-{
-  "inbounds": [
-    {
-      "port": 10000,
-      "listen":"0.0.0.0",
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "$id",
-            "alterId": 0
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-        "path": "/fuck"
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    }
-  ]
-}
-EOF
-
-exit
-
-
 # bbr
 curl https://raw.githubusercontent.com/teddysun/across/master/bbr.sh | bash
 
