@@ -35,12 +35,12 @@ cat > /usr/local/etc/v2ray/config.json<<EOF
             "email": "love@v2fly.org"
           }
         ],
-		    "decryption": "none"
+        "decryption": "none"
       },
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-        "path": "/fuck"
+           "path": "/fuck"
         }
       }
     }
