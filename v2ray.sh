@@ -54,6 +54,24 @@ cat > /usr/local/etc/v2ray/config.json<<EOF
 }
 EOF
 
+cat > /etc/nginx/sites-enabled/free.conf<<EOF
+server {
+    listen       443 ssl http2;
+
+    location / {
+        return 404;
+    }
+
+    location /fuck {
+        proxy_pass http://127.0.0.1:10000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade ;
+        proxy_set_header Connection ;
+    }
+    ssl_certificate ssl/free.pem;
+    ssl_certificate_key ssl/free.key;
+}
+EOF
 
 # 启动服务
 systemctl enable v2ray.service --now
