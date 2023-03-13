@@ -54,7 +54,14 @@ cat > /usr/local/etc/v2ray/config.json<<EOF
 }
 EOF
 
+mkdir /etc/nginx/ssl
+
 cat > /etc/nginx/sites-enabled/free.conf<<EOF
+map \$http_upgrade \$connection_upgrade {
+    default upgrade;
+    '' close;
+}
+
 server {
     listen       443 ssl http2;
 
@@ -65,8 +72,8 @@ server {
     location /fuck {
         proxy_pass http://127.0.0.1:10000;
         proxy_http_version 1.1;
-        proxy_set_header Upgrade ;
-        proxy_set_header Connection ;
+        proxy_set_header Upgrade \$http_upgrade;
+        proxy_set_header Connection \$connection_upgrade;
     }
     ssl_certificate ssl/free.pem;
     ssl_certificate_key ssl/free.key;
