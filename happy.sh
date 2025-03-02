@@ -23,9 +23,9 @@ bash install-dat-release.sh
 rm /etc/systemd/system/v2ray.service /etc/systemd/system/v2ray.service.d/10-donot_touch_single_conf.conf
 
 rm -f install-release.sh install-dat-release.sh 
-rm -rf /var/log/v2ray/ /etc/systemd/system/v2ray.service.d /etc/systemd/system/v2ray.service
-mv /usr/local/share/v2ray /usr/local/share/happy
-mv /usr/local/etc/v2ray /usr/local/etc/happy
+rm -rf /var/log/v2ray/ /etc/systemd/system/v2ray.service.d /etc/systemd/system/v2ray.service
+mv /usr/local/share/v2ray /usr/local/share/happy
+mv /usr/local/etc/v2ray /usr/local/etc/happy
 mv /usr/local/bin/v2ray /usr/local/bin/happy
 
 
